@@ -1,0 +1,500 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.fancyWeather {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: black;
+  background-size: cover;
+}
+
+.fancyWeather__transparentBackground {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: black;
+  opacity: 0.4;
+}
+
+.fancyWeather__content {
+  position: relative;
+  z-index: 9;
+  width: 100%;
+  height: 100vh;
+  padding: 30px 65px;
+
+  color: white;
+
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 20px;
+  grid-template-areas:
+    "menu menu"
+     "wT gT"
+    "wFD gT";
+}
+
+.menu {
+  grid-area: menu;
+}
+
+.weatherToday {
+  grid-area: wT;
+}
+
+.weatherFollowingDays {
+  grid-area: wFD;
+}
+
+.geolocationData {
+  grid-area: gT;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonStyle {
+  height: 50px;
+  margin-right: 15px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: #bababa;
+}
+
+.buttonStyle:hover {
+  cursor: pointer;
+  background: #959595;
+}
+
+.menu__controlsBackgroundButton {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu__controlsBackgroundImage {
+  width: 20px;
+  height: 20px;
+}
+
+.menu__controlsSelect {
+  height: 50px;
+  padding: 0 10px;
+  -webkit-appearance: none;
+  appearance: none;
+
+  text-transform: uppercase;
+}
+
+.menu__controlsTemperature {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__controlsTemperature--c {
+  width: 40px;
+  margin-right: 0;
+
+  border-radius: 0 8px 8px 0;
+  border-left: 1px solid grey;
+}
+
+.menu__controlsTemperature--f {
+  width: 40px;
+  margin-right: 0;
+
+  border-radius: 8px 0 0 8px;
+  border-right: 1px solid grey;
+}
+
+.menu__controlsTemperature--active {
+  background: #959595;
+}
+
+.menu__form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__formInput {
+  width: 200px;
+  padding: 0 10px;
+}
+
+.menu__formInput:invalid {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.menu__formButton {
+  width: 80px;
+  margin-right: 0;
+}
+
+.weatherToday__nameCity {
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.weatherToday__date {
+  font-size: 24px;
+}
+
+.weatherToday__temperature {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.weatherToday__temperatureDegree {
+  font-size: 230px;
+  font-weight: bold;
+}
+
+.weatherTodayIcon {
+  width: 300px;
+  height: 150px;
+}
+
+.weatherToday__additional {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.weatherFollowingDays {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weatherFollowingDays__itemDays {
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.weatherFollowingDays__itemTemperature {
+  font-size: 70px;
+  font-weight: bold;
+
+  display: inline-block;
+}
+
+.geolocationData__map {
+  width: 400px;
+  height: 500px;
+  margin-left: auto;
+
+  border-radius: 8px;
+}
+
+.geolocationData__coordinates {
+  margin: 10px 0;
+
+  font-size: 30px;
+  text-align: right;
+}
+
+
+@media (max-width: 1000px) {
+  .fancyWeather__content {
+    grid-template-areas: "menu menu" "wT gT" ". gT" "wFD wFD";
+
+    padding: 30px 40px;
+  }
+
+  .weatherToday__temperatureDegree {
+    font-size: 210px;
+  }
+
+  .weatherTodayIcon {
+    width: 230px;
+    height: 119px;
+  }
+
+  .geolocationData__map {
+    width: 350px;
+    height: 450px;
+  }
+
+  .weatherFollowingDays__icon {
+    width: 120px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 875px) {
+  .weatherToday__date {
+    font-size: 20px;
+  }
+
+  .weatherToday__temperatureDegree {
+    font-size: 185px;
+  }
+
+  .weatherTodayIcon {
+    width: 200px;
+    height: 100px;
+  }
+
+  .weatherToday__additional {
+    width: 280px;
+
+    font-size: 18px;
+  }
+
+  .geolocationData__map {
+    width: 300px;
+    height: 430px;
+}
+
+  .weatherFollowingDays__icon {
+    width: 100px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 775px) {
+  .fancyWeather__content {
+    padding: 15px 30px;
+  }
+
+  .weatherToday__nameCity {
+    font-size: 20px;
+  }
+
+  .weatherToday__date {
+    font-size: 15px;
+  }
+
+  .weatherToday__temperatureDegree {
+    font-size: 150px;
+  }
+
+  .geolocationData__coordinates {
+    font-size: 25px;
+  }
+
+  .weatherFollowingDays__itemDays {
+    font-size: 20px;
+  }
+
+  .weatherFollowingDays__itemTemperature {
+    font-size: 50px;
+  }
+
+  .geolocationData__map {
+    width: 270px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 660px) {
+  .buttonStyle {
+    height: 40px;
+  }
+
+  .menu__controlsSelect {
+    width: 50px;
+    height: 40px;
+  }
+
+  .menu__formInput {
+    width: 130px;
+  }
+
+  .menu__formButton {
+    width: 60px;
+  }
+
+  .weatherToday__additional {
+    width: 200px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .weatherToday__temperatureDegree {
+    font-size: 100px;
+  }
+
+  .weatherTodayIcon {
+    width: 160px;
+    height: 80px;
+  }
+
+  .geolocationData__map {
+    width: 220px;
+    height: 341px;
+  }
+
+  .geolocationData__coordinates {
+    margin: 5px 0;
+
+    font-size: 18px;
+  }
+
+  .weatherFollowingDays__icon {
+    width: 80px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 550px) {
+  .fancyWeather__content {
+    grid-template-areas: "menu menu" "wT wFD" "gT gT";
+
+    padding: 15px 20px;
+  }
+
+  .menu__controls {
+    width: 100%;
+  }
+
+  .menu{
+    flex-direction: column;
+  }
+
+  .menu__form {
+    width: 100%;
+  }
+
+  .menu__formInput {
+    width: 100%;
+  }
+
+  .weatherToday {
+    margin-top: 50px;
+  }
+
+  .weatherToday__additional {
+    width: 180px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .weatherFollowingDays {
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-top: 50px;
+  }
+
+  .weatherFollowingDays__itemDays {
+    font-size: 14px;
+  }
+
+  .weatherFollowingDays__itemTemperature {
+    font-size: 30px;
+  }
+
+  .geolocationData__map {
+    width: 260px;
+    height: 240px;
+
+    margin: 0;
+  }
+
+  .geolocationData__coordinates {
+    text-align: left;
+  }
+}
+
+@media (max-width: 414px) {
+  .fancyWeather__content {
+    grid-gap: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .fancyWeather__content {
+    padding: 10px 15px;
+
+    grid-gap: 5px;
+  }
+  .weatherToday {
+    margin-top: 0;
+  }
+
+  .weatherTodayIcon {
+    width: 100px;
+    height: 50px;
+  }
+
+  .weatherFollowingDays__item {
+    margin-left: auto;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .menu__form {
+    right: 10px;
+  }
+
+  .weatherToday__temperatureDegree {
+    font-size: 65px;
+  }
+
+  .weatherFollowingDays__icon {
+    width: 60px;
+    height: 30px;
+  }
+
+  .geolocationData__map {
+    width: 280px;
+    height: 170px;
+  }
+}

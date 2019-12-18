@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fancy-weather</title>
+  <link href="style.css" rel="stylesheet">
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet'/>
+
+  <script src="https://rawgit.com/darkskyapp/skycons/master/skycons.js"></script>
+</head>
+<body>
+<div class="fancyWeather" id="fancyWeather">
+  <div class="fancyWeather__transparentBackground"></div>
+  <div class="fancyWeather__content">
+    <div class="menu">
+      <div class="menu__controls">
+        <button class="buttonStyle menu__controlsBackgroundButton" type="button" id="buttonBackground">
+          <img class="menu__controlsBackgroundImage" src="image/refresh-icon.svg">
+        </button>
+        <select class="buttonStyle menu__controlsSelect" id="menu__controlsSelect">
+          <option value="en" selected>en</option>
+          <option value="ru">ru</option>
+          <option value="be">be</option>
+        </select>
+        <div class="menu__controlsTemperature" id="degrees">
+          <button class="buttonStyle  menu__controlsTemperature--f" type="button" id="fahrenheit">F</button>
+          <button class="buttonStyle  menu__controlsTemperature--c menu__controlsTemperature--active"
+                  type="button" id="celsius">C
+          </button>
+        </div>
+      </div>
+      <form class="menu__form" id="form">
+        <input class="buttonStyle menu__formInput" id="searchCity" type="text" placeholder="Search city"
+               required>
+        <button class="buttonStyle menu__formButton" type="submit" id="searchButton">Search</button>
+      </form>
+    </div>
+
+    <div class="weatherToday">
+      <p class="weatherToday__nameCity" id="nameCity"></p>
+      <p class="weatherToday__date" id="weatherToday__date">
+        <span id="dayOfWeek"></span>
+        <span id="numberDay"></span>
+        <span id="month"></span>
+        <span id="time"></span>
+      </p>
+      <div class="weatherToday__temperature">
+        <p class="weatherToday__temperatureDegree" id="temperatureToday">10</p>
+        <canvas class="weatherTodayIcon" id="skyconsToday" width="300" height="150"></canvas>
+      </div>
+      <div class="weatherToday__additional data">
+        <p id="weatherDescription">overcast</p>
+        <p>
+          <span id="fillLike">Feel like:</span>
+          <span id="fillLikeTemperature"></span>
+        </p>
+        <p>
+          <span id="wind">Wind:</span>
+          <span id="windSpeed"></span>
+          <span id="windMs"></span>
+          <span id="windMsName">m/s</span>
+        </p>
+        <p>
+          <span id="humidity">Humidity:</span>
+          <span id="humidityPercent"></span>
+        </p>
+      </div>
+    </div>
+    <div class="weatherFollowingDays">
+      <div class="weatherFollowingDays__item">
+        <p class="weatherFollowingDays__itemDays" id="nameFirstDay">Tuesday</p>
+        <p class="weatherFollowingDays__itemTemperature" id="temperatureFirstDay"></p>
+        <canvas class="weatherFollowingDays__icon" id="skyconsFirstDay" width="150" height="75"></canvas>
+      </div>
+      <div class="weatherFollowingDays__item">
+        <p class="weatherFollowingDays__itemDays" id="nameSecondDay">Wednesday</p>
+        <p class="weatherFollowingDays__itemTemperature" id="temperatureSecondDay"></p>
+        <canvas class="weatherFollowingDays__icon" id="skyconsSecondDay" width="150" height="75"></canvas>
+      </div>
+      <div class="weatherFollowingDays__item">
+        <p class="weatherFollowingDays__itemDays" id="nameThirdDay">Thursday</p>
+        <p class="weatherFollowingDays__itemTemperature" id="temperatureThirdDay"></p>
+        <canvas class="weatherFollowingDays__icon" id="skyconsThirdDay" width="150" height="75"></canvas>
+      </div>
+    </div>
+    <div class="geolocationData">
+      <div class="geolocationData__map" id="map"></div>
+      <p class="geolocationData__coordinates">
+        <span id="latitude"></span>
+        <span id="latitudeDegrees"></span>
+      </p>
+      <p class="geolocationData__coordinates">
+        <span id="longitude"></span>
+        <span id="longitudeDegrees"></span>
+      </p>
+    </div>
+  </div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>

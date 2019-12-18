@@ -1,0 +1,16 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "no-use-before-define": ["off"]
+  },
+  "globals": {
+    "document": true,
+    "window": true,
+    "localStorage": true,
+    "Image": true,
+    "fetch": true,
+    "navigator": true,
+    "mapboxgl":  true,
+    "Skycons": true
+  }
+}
