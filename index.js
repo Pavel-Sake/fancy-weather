@@ -376,6 +376,7 @@ initializeCurrentPositionAndSettings();
 updateDateTimeElements(currentLocationDate);
 updateTranslationMessages();
 
+
 languageSelect.addEventListener('change', handleChangeLanguage);
 formElement.addEventListener('submit', handleSubmitForm);
 degreesElement.addEventListener('click', handleClickDegreesButton);
